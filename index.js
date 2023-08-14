@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/messages/list', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
         const messages = await Message.find();
         res.json(messages.map(message => message.content));
