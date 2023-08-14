@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/messages', async (req, res) => {
+app.get('/messages/list', async (req, res) => {
     try {
         const messages = await Message.find();
         res.json(messages.map(message => message.content));
@@ -18,7 +18,7 @@ app.get('/messages', async (req, res) => {
     }
 });
 
-app.post('/messages', async (req, res) => {
+app.post('/messages/create', async (req, res) => {
     const { user, message } = req.body;
     try {
         await Message.create({ content: message, user: user });
