@@ -18,7 +18,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.post('/messages/create', async (req, res) => {
+app.post('/', async (req, res) => {
     const { user, message } = req.body;
     try {
         await Message.create({ content: message, user: user });
